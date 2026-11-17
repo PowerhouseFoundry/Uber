@@ -1,0 +1,26 @@
+POWERHOUSE TAXI BOOKING SIMULATOR - LOCATION UPDATE (17 NOV 2026)
+
+Changes from Stage 3:
+- Requests fresh high-accuracy browser positioning (no two-minute cached reading).
+- Collects improved readings for up to 16 seconds; uses best reported accuracy.
+- Displays accuracy in metres and an uncertainty circle on the map.
+- Re-centres the map at the location returned by the device.
+- Allows dragging pickup and destination markers to correct their position.
+- Prompts users to check the actual roadside pickup, even with a good GPS reading.
+- Searches are biased towards the chosen pickup instead of only the map centre.
+- Keeps learner name in memory only and does not save it between reloads.
+
+IMPORTANT LIMITATION:
+Laptop browsers often estimate location from Wi-Fi or IP data. No map provider can make
+an inaccurate laptop geolocation reading exact. Phones with GPS generally perform better,
+but they can also be inaccurate indoors. The learner must confirm the pickup pin.
+
+The app currently uses Leaflet + OpenStreetMap tiles + Photon + public OSRM routing.
+These are public demonstration endpoints and not suitable as a guaranteed high-volume
+classroom production service. Mapbox Search + Directions + map tiles is a viable managed
+option once you create an API token and accept the provider's usage terms and pricing.
+
+DEPLOY TO EXISTING RENDER STATIC SITE:
+Replace index.html in your GitHub repository root with this version. Keep the existing
+assets folder unchanged. Commit. Render will redeploy automatically if Auto Deploy is on.
+No change to Publish Directory: use . (one full stop).
