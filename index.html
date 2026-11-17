@@ -50,7 +50,8 @@ function show(id){view=id;document.querySelectorAll('.screen').forEach(s=>s.clas
 function ensureMap(){
  if(map)return true;
  if(!window.maplibregl){toast('Loading the map. Please try Continue again in a moment.');return false}
- if(!maplibregl.supported()){toast('This browser cannot display vector maps. Try an updated Chrome or Safari browser.');$('mapError').classList.add('show');return false}
+ // MapLibre GL v6 does not expose maplibregl.supported(); initialise directly.
+ // Map construction and error events below handle unsupported browsers.
  try{
   map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/dark',center:[DEFAULT.lng,DEFAULT.lat],zoom:13,attributionControl:true,renderWorldCopies:false,dragRotate:false,pitchWithRotate:false,maxPitch:0});
   map.touchZoomRotate.disableRotation();
